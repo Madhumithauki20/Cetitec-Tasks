@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+int main(void) {
+    int R1,C1,R2,C2;
+    cout<<"Enter row and column for first matrix";
+    cin>>R1>>C1;
+    cout<<"Enter row and column for second matrix";
+    cin>>R2>>C2;
+    int mat1[R1][C1];
+    int mat2[R2][C2];
+    cout<<"Enter elements for first matrix";
+    for (int i = 0; i < R1; i++)
+    {
+        for (int j = 0; j <C1; j++)
+        {
+            cin>> mat1[i][j];
+        }
+    }
+    cout<<"Enter elements for second matrix";
+    for (int i = 0; i < R2; i++)
+    {
+        for (int j = 0; j <C2; j++)
+        {
+            cin>> mat2[i][j];
+        }
+    }
+
+    if (C1 != R2) {
+        cout << "Multiplication of two matrices is not possible"<< endl;
+        exit(EXIT_FAILURE);
+    }
+    int rslt[R1][C2];
+	for (int i = 0; i < R1; i++) {
+		for (int j = 0; j < C2; j++) {
+			rslt[i][j] = 0;
+			for (int k = 0; k < R2; k++) {
+				rslt[i][j] += mat1[i][k] * mat2[k][j];
+			}
+			cout << rslt[i][j] << "\t";
+		}
+		cout << endl; 
+	}
+	return 0;
+}
